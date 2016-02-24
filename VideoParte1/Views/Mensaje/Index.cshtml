@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VideoParte1.Models.Mensaje>
+
+@{
+    ViewBag.Title = "Index";
+
+    var mensaje = ViewData["msj"] as VideoParte1.Models.Mensaje;
+}
+
+<h2>Index</h2>
+
+<h1>@ViewBag.variable1</h1>
+<h1>@ViewBag.variable2</h1>
+<h1>@ViewData["variable3"]</h1>
+<h1>@ViewData["variable4"]</h1>
+<h1>@mensaje.contenido</h1>
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.contenido)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.contenido)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
